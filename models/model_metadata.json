@@ -1,0 +1,8 @@
+{
+    "books": 2125,
+    "users": 7579,
+    "ratings": 67234,
+    "tfidf_features": 10529,
+    "svd_components": 30,
+    "global_rating": 7.848543891483476
+}

@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>SmartBook — Intelligent Book Recommendations</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-inner">
+
+            <div class="brand">
+
+                <div class="brand-icon">
+                    📚
+                </div>
+
+                <div>
+
+                    <div class="brand-name">
+                        SMARTBOOK
+                    </div>
+
+                    <div class="brand-subtitle">
+                        Intelligent Recommendations
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="model-status">
+
+                <span class="status-dot"></span>
+
+                Hybrid Recommendation Engine
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main-container">
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+            <div class="hero-badge">
+                AI-POWERED BOOK DISCOVERY
+            </div>
+
+            <h1>
+                Find your next
+                <span>favorite book.</span>
+            </h1>
+
+            <p class="hero-description">
+
+                Tell SmartBook about a book you love.
+                Our hybrid recommendation engine combines
+                <strong>book content</strong> and
+                <strong>reader behavior</strong>
+                to discover books you'll likely enjoy.
+
+            </p>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-wrapper">
+
+                <div class="search-box">
+
+                    <span class="search-icon">
+                        🔍
+                    </span>
+
+                    <input
+                        type="text"
+                        id="book-search"
+                        placeholder="What book do you like?"
+                        autocomplete="off"
+                    >
+
+                    <span
+                        class="search-loader"
+                        id="search-loader"
+                    ></span>
+
+                </div>
+
+
+                <!-- SEARCH RESULTS -->
+
+                <div
+                    class="search-results"
+                    id="search-results"
+                ></div>
+
+            </div>
+
+
+            <div class="search-hint">
+
+                Start typing a title, author, or keyword
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SELECTED BOOK
+        ================================================== -->
+
+        <section
+            class="selected-section hidden"
+            id="selected-section"
+        >
+
+            <div class="section-label">
+
+                <span class="label-line"></span>
+
+                <span>
+                    YOUR BOOK
+                </span>
+
+            </div>
+
+
+            <div
+                class="selected-book"
+                id="selected-book"
+            >
+
+                <!-- JS inserts selected book -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LOADING
+        ================================================== -->
+
+        <section
+            class="recommendation-loading hidden"
+            id="recommendation-loading"
+        >
+
+            <div class="loading-animation">
+
+                <div class="loading-spinner"></div>
+
+            </div>
+
+            <h3>
+                Finding books for you...
+            </h3>
+
+            <p>
+                Combining content and reader preferences
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             RECOMMENDATIONS
+        ================================================== -->
+
+        <section
+            class="recommendations-section hidden"
+            id="recommendations-section"
+        >
+
+            <div class="recommendation-header">
+
+                <div>
+
+                    <div class="section-label">
+
+                        <span class="label-line"></span>
+
+                        <span>
+                            SMART RECOMMENDATIONS
+                        </span>
+
+                    </div>
+
+                    <h2>
+                        Recommended for you
+                    </h2>
+
+                    <p>
+                        Books selected using your chosen book
+                        and our hybrid recommendation model.
+                    </p>
+
+                </div>
+
+                <div class="engine-pill">
+
+                    <span>60%</span>
+                    Content
+
+                    <span class="plus">+</span>
+
+                    <span>40%</span>
+                    Readers
+
+                </div>
+
+            </div>
+
+
+            <!-- RECOMMENDATION GRID -->
+
+            <div
+                class="recommendation-grid"
+                id="recommendation-grid"
+            >
+
+                <!-- JS inserts recommendations -->
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             WHY SMARTBOOK
+        ================================================== -->
+
+        <section
+            class="explanation-section hidden"
+            id="explanation-section"
+        >
+
+            <div class="section-label">
+
+                <span class="label-line"></span>
+
+                <span>
+                    HOW SMARTBOOK DECIDES
+                </span>
+
+            </div>
+
+            <h2>
+                Why these books?
+            </h2>
+
+            <p class="explanation-intro">
+
+                SmartBook doesn't rely on just one signal.
+                Every recommendation combines two different
+                perspectives.
+
+            </p>
+
+
+            <div class="explanation-grid">
+
+
+                <!-- CONTENT -->
+
+                <div class="explanation-card">
+
+                    <div class="explanation-icon">
+                        ◈
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Content Similarity
+                        </h3>
+
+                        <p>
+
+                            Compares the books using information
+                            such as title, author, and textual
+                            characteristics.
+
+                        </p>
+
+                        <div class="metric">
+
+                            <span>
+                                Content signal
+                            </span>
+
+                            <div class="metric-bar">
+
+                                <div
+                                    class="metric-fill content-fill"
+                                ></div>
+
+                            </div>
+
+                            <strong>
+                                60%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- COLLABORATIVE -->
+
+                <div class="explanation-card">
+
+                    <div class="explanation-icon">
+                        ◉
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Reader Similarity
+                        </h3>
+
+                        <p>
+
+                            Uses patterns in reader ratings
+                            to discover books enjoyed by
+                            similar readers.
+
+                        </p>
+
+                        <div class="metric">
+
+                            <span>
+                                Reader signal
+                            </span>
+
+                            <div class="metric-bar">
+
+                                <div
+                                    class="metric-fill reader-fill"
+                                ></div>
+
+                            </div>
+
+                            <strong>
+                                40%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HYBRID -->
+
+                <div class="explanation-card hybrid-card">
+
+                    <div class="explanation-icon">
+                        ✦
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Hybrid Score
+                        </h3>
+
+                        <p>
+
+                            The final recommendation combines
+                            both signals into one ranking.
+
+                        </p>
+
+                        <div class="formula">
+
+                            <span>
+                                0.6 × Content
+                            </span>
+
+                            <span>+</span>
+
+                            <span>
+                                0.4 × Reader
+                            </span>
+
+                            <span>=</span>
+
+                            <strong>
+                                Hybrid
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             EMPTY STATE
+        ================================================== -->
+
+        <section
+            class="empty-state"
+            id="empty-state"
+        >
+
+            <div class="empty-icon">
+                ✦
+            </div>
+
+            <h3>
+                Your recommendations start here.
+            </h3>
+
+            <p>
+
+                Search for a book you already enjoy
+                and SmartBook will take it from there.
+
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+        <div>
+
+            SMARTBOOK
+
+        </div>
+
+        <div>
+
+            Hybrid recommendation system
+            · Content + Collaborative Filtering
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script
+        src="{{ url_for('static', filename='js/app.js') }}"
+    ></script>
+
+</body>
+
+</html>
